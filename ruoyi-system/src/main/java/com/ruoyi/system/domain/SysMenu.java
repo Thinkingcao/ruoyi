@@ -3,6 +3,8 @@ package com.ruoyi.system.domain;
 import java.util.List;
 import java.util.ArrayList;
 import javax.validation.constraints.*;
+
+import com.ruoyi.common.annotation.Excel;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.core.domain.BaseEntity;
@@ -51,6 +53,19 @@ public class SysMenu extends BaseEntity
 
     /** 子菜单 */
     private List<SysMenu> children = new ArrayList<SysMenu>();
+
+    /** 备注 */
+    private String remark;
+
+    public String getRemark()
+    {
+        return remark;
+    }
+
+    public void setRemark(String remark)
+    {
+        this.remark = remark;
+    }
 
     public Long getMenuId()
     {

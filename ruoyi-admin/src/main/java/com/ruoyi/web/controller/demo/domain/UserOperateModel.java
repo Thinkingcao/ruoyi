@@ -41,6 +41,18 @@ public class UserOperateModel extends BaseEntity
 
     }
 
+    /** 搜索值 */
+    private String searchValue;
+    public String getSearchValue()
+    {
+        return searchValue;
+    }
+
+    public void setSearchValue(String searchValue)
+    {
+        this.searchValue = searchValue;
+    }
+
     public UserOperateModel(int userId, String userCode, String userName, String userSex, String userPhone,
             String userEmail, double userBalance, String status)
     {

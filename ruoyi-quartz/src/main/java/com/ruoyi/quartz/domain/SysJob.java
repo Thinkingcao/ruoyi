@@ -14,8 +14,8 @@ import com.ruoyi.quartz.util.CronUtils;
 
 /**
  * 定时任务调度表 sys_job
- * 
- * @author ruoyi
+ *
+
  */
 public class SysJob extends BaseEntity implements Serializable
 {
@@ -148,22 +148,35 @@ public class SysJob extends BaseEntity implements Serializable
         this.status = status;
     }
 
+    /** 备注 */
+    private String remark;
+
+    public String getRemark()
+    {
+        return remark;
+    }
+
+    public void setRemark(String remark)
+    {
+        this.remark = remark;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
-            .append("jobId", getJobId())
-            .append("jobName", getJobName())
-            .append("jobGroup", getJobGroup())
-            .append("cronExpression", getCronExpression())
-            .append("nextValidTime", getNextValidTime())
-            .append("misfirePolicy", getMisfirePolicy())
-            .append("concurrent", getConcurrent())
-            .append("status", getStatus())
-            .append("createBy", getCreateBy())
-            .append("createTime", getCreateTime())
-            .append("updateBy", getUpdateBy())
-            .append("updateTime", getUpdateTime())
-            .append("remark", getRemark())
-            .toString();
+                .append("jobId", getJobId())
+                .append("jobName", getJobName())
+                .append("jobGroup", getJobGroup())
+                .append("cronExpression", getCronExpression())
+                .append("nextValidTime", getNextValidTime())
+                .append("misfirePolicy", getMisfirePolicy())
+                .append("concurrent", getConcurrent())
+                .append("status", getStatus())
+                .append("createBy", getCreateBy())
+                .append("createTime", getCreateTime())
+                .append("updateBy", getUpdateBy())
+                .append("updateTime", getUpdateTime())
+                .append("remark", getRemark())
+                .toString();
     }
 }

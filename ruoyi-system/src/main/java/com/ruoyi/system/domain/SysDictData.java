@@ -52,6 +52,21 @@ public class SysDictData extends BaseEntity
     @Excel(name = "状态", readConverterExp = "0=正常,1=停用")
     private String status;
 
+    /** 备注 */
+    @Excel(name = "备注")
+    private String remark;
+
+    public String getRemark()
+    {
+        return remark;
+    }
+
+    public void setRemark(String remark)
+    {
+        this.remark = remark;
+    }
+
+
     public Long getDictCode()
     {
         return dictCode;

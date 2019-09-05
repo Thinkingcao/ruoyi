@@ -93,6 +93,20 @@ public class SysUser extends BaseEntity
     /** 岗位组 */
     private Long[] postIds;
 
+    /** 备注 */
+    @Excel(name = "备注")
+    private String remark;
+
+    public String getRemark()
+    {
+        return remark;
+    }
+
+    public void setRemark(String remark)
+    {
+        this.remark = remark;
+    }
+
     public Long getUserId()
     {
         return userId;

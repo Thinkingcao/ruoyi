@@ -39,6 +39,20 @@ public class SysPost extends BaseEntity
     /** 用户是否存在此岗位标识 默认不存在 */
     private boolean flag = false;
 
+    /** 备注 */
+    @Excel(name = "备注")
+    private String remark;
+
+    public String getRemark()
+    {
+        return remark;
+    }
+
+    public void setRemark(String remark)
+    {
+        this.remark = remark;
+    }
+
     public Long getPostId()
     {
         return postId;

@@ -40,6 +40,20 @@ public class SysRole extends BaseEntity
     @Excel(name = "角色状态", readConverterExp = "0=正常,1=停用")
     private String status;
 
+    /** 备注 */
+    @Excel(name = "备注")
+    private String remark;
+
+    public String getRemark()
+    {
+        return remark;
+    }
+
+    public void setRemark(String remark)
+    {
+        this.remark = remark;
+    }
+
     /** 删除标志（0代表存在 2代表删除） */
     private String delFlag;
 

@@ -68,8 +68,7 @@ public class ${ClassName}Controller extends BaseController
     public TableDataInfo list(${ClassName} ${className})
     {
         startPage();
-        List<${ClassName}> list = ${className}Service.select${ClassName}List(${className});
-        return getDataTable(list);
+        return getDataTable(${className}Service.list(new QueryWrapper<>()));
     }
 #end
 
@@ -81,7 +80,7 @@ public class ${ClassName}Controller extends BaseController
     @ResponseBody
     public AjaxResult export(${ClassName} ${className})
     {
-        List<${ClassName}> list = ${className}Service.select${ClassName}List(${className});
+        List<${ClassName}> list = ${className}Service.list(new QueryWrapper<>());
         ExcelUtil<${ClassName}> util = new ExcelUtil<${ClassName}>(${ClassName}.class);
         return util.exportExcel(list, "${businessName}");
     }
@@ -119,7 +118,7 @@ public class ${ClassName}Controller extends BaseController
     @ResponseBody
     public AjaxResult addSave(${ClassName} ${className})
     {
-        return toAjax(${className}Service.insert${ClassName}(${className}));
+        return toAjax(${className}Service.save(${className}));
     }
 
     /**
@@ -128,7 +127,7 @@ public class ${ClassName}Controller extends BaseController
     @GetMapping("/edit/{${pkColumn.javaField}}")
     public String edit(@PathVariable("${pkColumn.javaField}") ${pkColumn.javaType} ${pkColumn.javaField}, ModelMap mmap)
     {
-        ${ClassName} ${className} = ${className}Service.select${ClassName}ById(${pkColumn.javaField});
+        ${ClassName} ${className} = ${className}Service.getById(${pkColumn.javaField});
         mmap.put("${className}", ${className});
         return prefix + "/edit";
     }
@@ -142,7 +141,7 @@ public class ${ClassName}Controller extends BaseController
     @ResponseBody
     public AjaxResult editSave(${ClassName} ${className})
     {
-        return toAjax(${className}Service.update${ClassName}(${className}));
+        return toAjax(${className}Service.updateById(${className}));
     }
 
 #if($table.crud)
@@ -155,7 +154,7 @@ public class ${ClassName}Controller extends BaseController
     @ResponseBody
     public AjaxResult remove(String ids)
     {
-        return toAjax(${className}Service.delete${ClassName}ByIds(ids));
+        return toAjax(${className}Service.removeByIds(Arrays.asList(Convert.toStrArray(ids))));
     }
 #elseif($table.tree)
     /**

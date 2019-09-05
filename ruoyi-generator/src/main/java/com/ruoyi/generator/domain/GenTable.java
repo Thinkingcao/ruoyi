@@ -73,6 +73,18 @@ public class GenTable extends BaseEntity
     /** 树名称字段 */
     private String treeName;
 
+    private String remark;
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+
+
     public Long getTableId()
     {
         return tableId;

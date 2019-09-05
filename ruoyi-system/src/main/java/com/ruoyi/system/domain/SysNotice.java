@@ -1,6 +1,8 @@
 package com.ruoyi.system.domain;
 
 import javax.validation.constraints.*;
+
+import com.ruoyi.common.annotation.Excel;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.core.domain.BaseEntity;
@@ -28,6 +30,19 @@ public class SysNotice extends BaseEntity
 
     /** 公告状态（0正常 1关闭） */
     private String status;
+
+    /** 备注 */
+    private String remark;
+
+    public String getRemark()
+    {
+        return remark;
+    }
+
+    public void setRemark(String remark)
+    {
+        this.remark = remark;
+    }
 
     public Long getNoticeId()
     {
